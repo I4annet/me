@@ -19,7 +19,7 @@
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="#home" class="flex items-center gap-3" data-link>
+        <a href="/about.html" class="flex items-center gap-3" data-link>
           <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-semibold text-slate-700">IE</div>
           <div class="hidden sm:block">
             <div class="text-sm font-semibold">Ivansyah Eka</div>
@@ -53,43 +53,34 @@
 
   <!-- Main container -->
   <main id="app" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+ 
+<section id="about" class="page mt-16" data-title="About">
+      <h2 class="text-2xl font-semibold">About</h2>
+      <div class="mt-4 text-slate-600">
+        <p>REPLACE_ME — Tulis cerita singkat mengenai latar pendidikan, keterampilan utama (mis. HTML, CSS, JavaScript, Laravel), dan tujuan karier Anda. (Ubah di VS Code.)</p>
 
-    <!-- HOME -->
-    <section id="home" class="page" data-title="Home">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 class="text-3xl sm:text-4xl font-bold">Ivansyah Eka Oktaviadi Santoso</h1>
-          <p class="mt-4 text-slate-600">REPLACE_ME — Saya seorang Web Developer yang menyukai pembuatan aplikasi web yang bersih, cepat, dan responsif. (Ganti deskripsi ini di VS Code.)</p>
-
-          <div class="mt-6 flex gap-3 items-center">
-            <a href="#projects" class="px-4 py-2 rounded-md bg-slate-800 text-white text-sm">Lihat Proyek</a>
-            <a href="#contact" class="px-4 py-2 rounded-md border text-sm">Hubungi Saya</a>
+        <div class="mt-6 grid sm:grid-cols-2 gap-4">
+          <div>
+            <h3 class="font-medium">Skills</h3>
+            <ul class="mt-2 text-sm text-slate-600 space-y-1">
+              <li>• HTML, CSS, JavaScript</li>
+              <li>• Framework: Laravel, React (jika ada)</li>
+              <li>• Responsive Design & Tailwind CSS</li>
+              <li>• Basic DB: MySQL / SQL Server</li>
+            </ul>
           </div>
-
-          <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
-            <div>📧 ivansyahsantoso@gmail.com</div>
-            <div>📱 085707092328</div>
-          </div>
-
-          <div class="mt-6 flex gap-3">
-            <!-- Socials placeholders -->
-            <a href="https://www.linkedin.com/in/REPLACE_ME" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-slate-600 hover:text-slate-900">LinkedIn</a>
-            <a href="https://github.com/REPLACE_ME" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-900">GitHub</a>
-            <a href="https://instagram.com/REPLACE_ME" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-900">Instagram</a>
-            <a href="https://threads.net/REPLACE_ME" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-900">Threads</a>
-            <a href="https://facebook.com/REPLACE_ME" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-900">Facebook</a>
-          </div>
-        </div>
-
-        <div class="flex justify-center md:justify-end">
-          <!-- Profile placeholder image -->
-          <div class="w-56 h-56 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center">
-            <img src="https://via.placeholder.com/220x220.png?text=Foto+Profil" alt="Foto Profil" class="rounded-2xl" />
+          <div>
+            <h3 class="font-medium">Services</h3>
+            <ul class="mt-2 text-sm text-slate-600 space-y-1">
+              <li>• Frontend Development</li>
+              <li>• Fullstack (Laravel + JS)</li>
+              <li>• Web Performance Optimization</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
-  </main>
+ </main>
 
   <footer class="border-t py-6">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-500">© <span id="year"></span> Ivansyah Eka Oktaviadi Santoso — This website is still in the development stage</div>
@@ -118,7 +109,7 @@
 
 
         // initial
-        showSection(location.hash || '#home');
+        showSection(location.hash || '#about');
 
 
         // handle link clicks
