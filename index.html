@@ -245,4 +245,42 @@
       navLinks.forEach(a => {
         a.classList.toggle('text-slate-900 font-semibold nav-active', a.getAttribute('href') === '#' + id);
       });
-      document.title = document.querySele
+      document.title = document.querySelector('#' + id)?.getAttribute('data-title') + ' — Ivansyah';
+        }
+
+
+        // initial
+        showSection(location.hash || '#home');
+
+
+        // handle link clicks
+        links.forEach(l => l.addEventListener('click', e => {
+        const href = l.getAttribute('href');
+        if (!href || !href.startsWith('#')) return; // external link
+        e.preventDefault();
+        history.pushState({}, '', href);
+        showSection(href);
+        // close mobile menu
+        document.getElementById('mobileMenu').classList.add('hidden');
+        }));
+
+
+        window.addEventListener('popstate', () => showSection(location.hash));
+
+
+        // mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        menuBtn?.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+
+        // contact form basic handler
+        document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Terima kasih! Pesan Anda telah dikirim (demo).');
+        e.target.reset();
+        });
+        </script>
+    </body>
+</html>
