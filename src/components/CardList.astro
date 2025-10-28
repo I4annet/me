@@ -1,0 +1,128 @@
+---
+import Card from './Card.astro'; // Import komponen Card
+
+interface CardData {
+  title: string;
+  description?: string;
+  image?: string;
+  link?: string;
+  buttonText?: string;
+}
+
+interface Props {
+  cards: CardData[];
+}
+
+const { cards } = Astro.props; // Ambil data cards dari parent
+---
+
+<div class="scroll-wrapper">
+  <!-- Tombol kiri -->
+  <button class="scroll-btn left" id="scroll-left">⟨</button>
+
+  <!-- Container card scrollable -->
+  <div class="card-list" id="scrollable-list">
+    {cards.map((item) => (
+      <Card {...item} />
+    ))}
+  </div>
+
+  <!-- Tombol kanan -->
+  <button class="scroll-btn right" id="scroll-right">⟩</button>
+</div>
+
+<!-- Script untuk scroll halus -->
+<script>
+            // Ambil elemen container yang berisi semua card
+            const container = document.querySelector<HTMLDivElement>('.cards-container');
+
+            // Ambil tombol panah kiri dan kanan
+            const leftBtn = document.getElementById('scrollLeft');
+            const rightBtn = document.getElementById('scrollRight');
+
+            // Pastikan semua elemen sudah ada sebelum digunakan
+            if (container && leftBtn && rightBtn) {
+            // Event listener tombol kiri untuk scroll ke kiri sejauh 300px
+            leftBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -300, behavior: 'smooth' }); // Scroll kiri halus
+            });
+
+            // Event listener tombol kanan untuk scroll ke kanan sejauh 300px
+            rightBtn.addEventListener('click', () => {
+                container.scrollBy({ left: 300, behavior: 'smooth' }); // Scroll kanan halus
+            });
+
+            // Tambahkan event listener untuk scroll mouse
+            container.addEventListener('wheel', (e) => {
+                // Cegah scroll vertikal agar tetap horizontal
+                e.preventDefault();
+                // Scroll secara horizontal berdasarkan arah scroll mouse
+                container.scrollBy({
+                left: e.deltaY < 0 ? -100 : 100, // Scroll kiri kalau ke atas, kanan kalau ke bawah
+                behavior: 'smooth',
+                });
+            });
+            }
+
+</script>
+
+<style>
+  .scroll-wrapper {
+    position: relative; /* Supaya tombol bisa diatur posisinya */
+    display: flex;
+    align-items: center;
+  }
+
+  .card-list {
+    display: flex; /* Susun card secara horizontal */
+    gap: 1rem;
+    overflow-x: auto; /* Aktifkan scroll horizontal */
+    scroll-behavior: smooth; /* Scroll halus */
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory; /* Biar card "nempel" saat berhenti */
+  }
+
+  .card-list::-webkit-scrollbar {
+    height: 8px; /* Ukuran scrollbar horizontal */
+  }
+
+  .card-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+
+  .card-list::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }
+
+  .card-list > * {
+    flex: 0 0 280px; /* Setiap card lebarnya tetap */
+    scroll-snap-align: start; /* Biar card berhenti rapi di tepi kiri */
+  }
+
+  .scroll-btn {
+    position: absolute; /* Supaya tombol menempel di kiri/kanan container */
+    top: 50%; /* Tengah vertikal */
+    transform: translateY(-50%); /* Benar-benar tengah */
+    background: rgba(255, 255, 255, 0.8); /* Warna tombol transparan */
+    border: none;
+    font-size: 2rem; /* Ukuran panah */
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease;
+  }
+
+  .scroll-btn:hover {
+    background: rgba(230, 230, 230, 0.9);
+  }
+
+  .scroll-btn.left {
+    left: -1rem; /* Letakkan sedikit ke kiri luar container */
+  }
+
+  .scroll-btn.right {
+    right: -1rem; /* Letakkan sedikit ke kanan luar container */
+  }
+</style>
