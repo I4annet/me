@@ -1,0 +1,63 @@
+---
+const today = new Date();
+---
+
+<footer>
+	&copy; {today.getFullYear()} Ivansyah Portofolio. All rights reserved (This web is still in development).
+	<div class="social-links">
+		<a href="https://facebook.com/ivansyah.santoso.3"
+			target="_blank"
+			aria-label="Go to My Facebook"
+			title="I4annet on Facebook"
+			>
+			<i class="fa fa-facebook" aria-hidden="true" style="font-size:32px;"></i>
+			<span class="sr-only">Facebook</span>
+		</a>
+		<!-- <a href="https://threads.com/ivansyah_41" target="_blank"
+			aria-label="Go to My Threads"
+			title="I4annet on Threads"
+			><i class="fa fa-threads" aria-hidden="true" style="font-size:32px;"></i>
+			<span class="sr-only">Threads</span>
+		</a> -->
+		<a href="https://linkedin.com/ivansyah-eka-oktaviadi-santoso" target="_blank"
+			aria-label="Go to My LinkedIn"
+			title="I4annet on LinkedIn"
+			><i class="fa fa-linkedin" aria-hidden="true" style="font-size:32px;"></i>
+			<span class="sr-only">LinkedIn</span>
+		</a>
+		<a href="https://instagram.com/ivansyaheka_41" target="_blank"
+			aria-label="Go to My Instagram"
+			title="I4annet on Instagram">
+			<i class="fa fa-instagram" aria-hidden="true" style="font-size:32px;"></i>
+			<span class="sr-only">Instagram</span>
+		</a>
+		<a href="https://github.com/I4annet" target="_blank"
+			aria-label="Go to My GitHub"
+			title="I4annet on Github">
+			<i class="fa fa-github" aria-hidden="true" style="font-size:32px;"></i>
+			<span class="sr-only">GitHub</span>
+			
+		</a>
+	</div>
+</footer>
+<style>
+	footer {
+		padding: 2em 1em 6em 1em;
+		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		color: rgb(var(--gray));
+		text-align: center;
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin-top: 1em;
+	}
+	.social-links a {
+		text-decoration: none;
+		color: rgb(var(--gray));
+	}
+	.social-links a:hover {
+		color: rgb(var(--gray-dark));
+	}
+</style>
